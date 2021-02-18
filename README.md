@@ -1,16 +1,16 @@
-# notely
+# Notely
 
-A new Flutter project.
+*An open-source note-taking app with a focus on elegance. :black_heart:*
 
-## Getting Started
+## About
 
-This project is a starting point for a Flutter application.
+I was sick and tired of using shitty note-taking apps that require either logins or save a lot of data about me. 
+I wanted something simple that would allow me to write down quick notes without any complications.
 
-A few resources to get you started if this is your first Flutter project:
+## Building
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Still to come.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Download
+
+Still to come.
