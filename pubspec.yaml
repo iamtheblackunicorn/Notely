@@ -8,6 +8,7 @@ dependencies:
   flutter:
     sdk: "flutter"
   cupertino_icons: "^1.0.0"
+  path_provider: ^1.6.27
   flutter_localizations:
     sdk: flutter
   intl: any

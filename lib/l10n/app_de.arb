@@ -7,5 +7,7 @@
   "appInfoLabel": "APP INFO",
   "underLabel": "lizenziert unter der",
   "licenseLabel": "Lizenz",
-  "gotItLabel": "VERSTANDEN!"
+  "gotItLabel": "VERSTANDEN!",
+  "byLabel": "von",
+  "viewingLabel": "Du kanns dir mehr von\nmir hier anschauen"
 }

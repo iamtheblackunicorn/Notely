@@ -1,4 +1,7 @@
+import 'dart:io';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -23,7 +26,36 @@ String appVersion = '1.0';
 String authorName = 'Alexander Abraham a.k.a.\n"The Black Unicorn"';
 String appLicense = 'MIT';
 String appTitle = 'NOTELY';
+String gitHubUrl = 'https://github.com/iamtheblackunicorn';
 String logoPath = 'assets/images/logo.png';
+
+class NotesStorage {
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+    return directory.path;
+  }
+
+  Future<File> get _localFile async {
+    final path = await _localPath;
+    return File('$path/notes.json');
+  }
+
+  Future<String> readCounter() async {
+    try {
+      final file = await _localFile;
+      String contents = await file.readAsString();
+      return contents;
+    } catch (e) {
+      return '';
+    }
+  }
+
+  Future<File> writeCounter(String userNote) async {
+    final file = await _localFile;
+    return file.writeAsString('$userNote');
+  }
+}
+
 
 void main() {
   runApp(
@@ -57,7 +89,7 @@ class HomeScreen extends StatelessWidget {
           new SizedBox(
             width: 250,
             height: 250,
-            Image(image: AssetImage(logoPath));
+            child: new Image(image: AssetImage(logoPath))
           ),
           SizedBox(height: headingSpacing),
           new RaisedButton(
@@ -71,7 +103,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => EditorWindow()),
+                MaterialPageRoute(builder: (context) => EditorWindow(notesStorage: NotesStorage())),
               );
             },
           ),
@@ -94,7 +126,22 @@ class HomeScreen extends StatelessWidget {
         ]))));
   }
 }
-class EditorWindow extends StatelessWidget {
+
+class EditorWindow extends StatefulWidget {
+  final NotesStorage notesStorage;
+  EditorWindow({Key key, @required this.notesStorage}) : super(key: key);
+  @override
+  EditorWindowState createState() => new EditorWindowState();
+}
+class EditorWindowState extends State<EditorWindow> {
+  String userNote;
+  @override
+  void initState() {
+    super.initState();
+  }
+  Future<File> saveNote(String userNote) {
+    return widget.notesStorage.writeCounter(userNote);
+  }
   @override
   Widget build(BuildContext context) {
     TextEditingController editingController = new TextEditingController();
@@ -123,7 +170,7 @@ class EditorWindow extends StatelessWidget {
                 size: stdIconSize,
               ),
               onPressed: () {
-                Navigator.pop(context);
+                saveNote(userNote);
               },
             ),
           )
@@ -218,6 +265,8 @@ class Info extends StatelessWidget {
   Widget build(BuildContext context) {
     String underText = AppLocalizations.of(context).underLabel;
     String licenseText = AppLocalizations.of(context).licenseLabel;
+    String byText = AppLocalizations.of(context).byLabel;
+    String viewingText = AppLocalizations.of(context).viewingLabel;
     return Scaffold(
         backgroundColor: textSpaceColor,
         appBar: AppBar(
@@ -259,7 +308,7 @@ class Info extends StatelessWidget {
                           ),
                           SizedBox(height: defaultPadding),
                           new Text(
-                            '$appTitle v.$appVersion by $authorName $underText $appLicense $licenseText',
+                            '$appTitle v.$appVersion $byText $authorName $underText $appLicense $licenseText.\n$viewingText:\n$gitHubUrl',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               color: mainColor,
