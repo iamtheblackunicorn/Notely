@@ -27,6 +27,7 @@ Make sure that you have the following programs installed:
 After you have installed these, run this command to generate a keystore for the app.
 
 ```bash
+keytool -genkey -v -keystore key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key
 ```
 
 After having done that, move the keystore to `android/app` and fill in the fields for the keystore password in the file `android/app/key.properties`.
