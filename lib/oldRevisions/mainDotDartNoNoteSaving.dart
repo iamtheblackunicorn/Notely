@@ -135,45 +135,16 @@ class EditorWindow extends StatefulWidget {
 }
 class EditorWindowState extends State<EditorWindow> {
   String userNote;
-  Map<String,dynamic> noteMap;
-  String noteBody;
   @override
   void initState() {
     super.initState();
-    widget.notesStorage.readCounter().then((String value) {
-      setState(() {
-        userNote = value;
-      });
-    });
   }
-  Future<File> saveNote(String userIO) {
-    List<String> initialNoteKeyList = userIO.split(' ');
-    List<String> noteKeyList = [];
-    for(int i = 0; i < 4; i++){
-      noteKeyList.add(initialNoteKeyList[i]);
-    }
-    String noteKey = noteKeyList.join('');
-    noteMap.addAll({noteKey:userIO});
-    userNote = json.encode(noteMap);
+  Future<File> saveNote(String userNote) {
     return widget.notesStorage.writeCounter(userNote);
   }
   @override
   Widget build(BuildContext context) {
     TextEditingController editingController = new TextEditingController();
-    String newNoteBodyText = AppLocalizations.of(context).newNoteBodyLabel;
-    String newNoteText = AppLocalizations.of(context).newNoteLabel;
-    if(userNote == '' || userNote == null){
-      setState((){
-        noteMap = {
-          newNoteText: newNoteBodyText
-        };
-      });
-    }
-    else{
-      setState((){
-        noteMap = json.decode(userNote);
-      });
-    }
     return Scaffold(
       appBar: AppBar(
         title: new Row(
@@ -194,38 +165,12 @@ class EditorWindowState extends State<EditorWindow> {
             padding: EdgeInsets.only(right: specialSpacingOne),
             child: IconButton(
               icon: Icon(
-                Icons.arrow_back,
-                color: accentColor,
-                size: stdIconSize,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
-          new Padding(
-            padding: EdgeInsets.only(right: specialSpacingOne),
-            child: IconButton(
-              icon: Icon(
                 Icons.save,
                 color: accentColor,
                 size: stdIconSize,
               ),
               onPressed: () {
-                saveNote(editingController.text);
-              },
-            ),
-          ),
-          new Padding(
-            padding: EdgeInsets.only(right: specialSpacingOne),
-            child: IconButton(
-              icon: Icon(
-                Icons.add,
-                color: accentColor,
-                size: stdIconSize,
-              ),
-              onPressed: () {
-                //saveNote(editingController.text);
+                saveNote(userNote);
               },
             ),
           )
@@ -277,14 +222,26 @@ class EditorWindowState extends State<EditorWindow> {
           )
         ),
       drawer: Drawer(
-        child: ListView.builder(
-          itemCount: noteMap.length,
-          itemBuilder: (context, index) {
-            String key = noteMap.keys.elementAt(index);
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text(
+                AppLocalizations.of(context).yourNotesLabel,
+                style: TextStyle(
+                  color: accentColor,
+                  fontSize: textFontSize,
+                  fontFamily: defaultFont
+                )
+              ),
+              decoration: BoxDecoration(
+                color: mainColor,
+              ),
+            ),
 
-            return ListTile(
+            ListTile(
               title: Text(
-                '$key',
+                AppLocalizations.of(context).closeLabel,
                 style: TextStyle(
                   color: mainColor,
                   fontSize: textFontSize,
@@ -293,17 +250,11 @@ class EditorWindowState extends State<EditorWindow> {
               ),
               onTap: () {
                 Navigator.pop(context);
-                  editingController.value = TextEditingValue(
-                    text: noteMap[key],
-                    selection: TextSelection.fromPosition(
-                      TextPosition(offset: noteMap[key].length),
-                    ),
-                  );
               },
-            );
+            ),
 
-          }
-        )
+          ],
+        ),
       ),
     );
   }

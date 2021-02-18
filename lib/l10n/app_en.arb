@@ -9,5 +9,7 @@
   "licenseLabel": "license",
   "gotItLabel": "GOT IT!",
   "byLabel": "by",
-  "viewingLabel": "More from Notely's creator\nhere"
+  "viewingLabel": "More from Notely's creator\nhere",
+  "newNoteBodyLabel": "Write something new.",
+  "newNoteLabel": "New Note."
 }

@@ -9,5 +9,7 @@
   "licenseLabel": "Lizenz",
   "gotItLabel": "VERSTANDEN!",
   "byLabel": "von",
-  "viewingLabel": "Du kanns dir mehr von\nmir hier anschauen"
+  "viewingLabel": "Du kanns dir mehr von\nmir hier anschauen",
+  "newNoteBodyLabel": "Schreib was neues!",
+  "newNoteLabel": "Neue Notiz"
 }
