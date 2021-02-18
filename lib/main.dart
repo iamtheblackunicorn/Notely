@@ -18,10 +18,12 @@ double stdIconSize = 24;
 double stdRounding = 5.0;
 double stdSpacing = 20;
 double specialSpacingTwo = 50;
+double headingSpacing = 30;
 String appVersion = '1.0';
 String authorName = 'Alexander Abraham a.k.a.\n"The Black Unicorn"';
 String appLicense = 'MIT';
 String appTitle = 'NOTELY';
+String logoPath = 'assets/images/logo.png';
 
 void main() {
   runApp(
@@ -52,16 +54,15 @@ class HomeScreen extends StatelessWidget {
             child: SingleChildScrollView(
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          new Text(appTitle,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: accentColor,
-                  fontSize: titleFontSize,
-                  fontFamily: titleFont)),
-          SizedBox(height: defaultSpacing),
+          new SizedBox(
+            width: 250,
+            height: 250,
+            Image(image: AssetImage(logoPath));
+          ),
+          SizedBox(height: headingSpacing),
           new RaisedButton(
             color: accentColor,
-            child: Text('Notes',
+            child: Text(AppLocalizations.of(context).notesLabel,
                 style: TextStyle(
                     color: mainColor,
                     fontSize: textFontSize,
@@ -77,7 +78,7 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: defaultSpacing),
           new RaisedButton(
             color: accentColor,
-            child: Text('Info',
+            child: Text(AppLocalizations.of(context).infoLabel,
                 style: TextStyle(
                     color: mainColor,
                     fontSize: textFontSize,
@@ -103,7 +104,7 @@ class EditorWindow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             new Text(
-              'NOTES',
+              AppLocalizations.of(context).notesLabel,
               style: TextStyle(
                 color: accentColor,
                 fontSize: textFontSize
@@ -154,7 +155,7 @@ class EditorWindow extends StatelessWidget {
                       errorBorder: InputBorder.none,
                       disabledBorder: InputBorder.none,
                       counterText: '',
-                      hintText: 'WRITE YOUR NOTE HERE. :)',
+                      hintText: AppLocalizations.of(context).placeHolderLabel,
                       hintStyle: TextStyle(
                         fontSize: textFontSize,
                         color: accentColor,
@@ -179,7 +180,7 @@ class EditorWindow extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
               child: Text(
-                'YOUR NOTES',
+                AppLocalizations.of(context).yourNotesLabel,
                 style: TextStyle(
                   color: accentColor,
                   fontSize: textFontSize,
@@ -193,7 +194,7 @@ class EditorWindow extends StatelessWidget {
 
             ListTile(
               title: Text(
-                'CLOSE MENU',
+                AppLocalizations.of(context).closeLabel,
                 style: TextStyle(
                   color: mainColor,
                   fontSize: textFontSize,
@@ -215,11 +216,13 @@ class EditorWindow extends StatelessWidget {
 class Info extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String underText = AppLocalizations.of(context).underLabel;
+    String licenseText = AppLocalizations.of(context).licenseLabel;
     return Scaffold(
         backgroundColor: textSpaceColor,
         appBar: AppBar(
           title: new Text(
-            'INFO',
+            AppLocalizations.of(context).infoLabel,
             style: TextStyle(
               color: accentColor,
               fontSize: textFontSize,
@@ -246,7 +249,7 @@ class Info extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           new Text(
-                            'APP INFO',
+                            AppLocalizations.of(context).appInfoLabel,
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               color: mainColor,
@@ -256,7 +259,7 @@ class Info extends StatelessWidget {
                           ),
                           SizedBox(height: defaultPadding),
                           new Text(
-                            '$appTitle v.$appVersion by $authorName licensed under the $appLicense license',
+                            '$appTitle v.$appVersion by $authorName $underText $appLicense $licenseText',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               color: mainColor,
@@ -272,7 +275,7 @@ class Info extends StatelessWidget {
                   new RaisedButton(
                     color: accentColor,
                     child: Text(
-                      'GOT IT',
+                      AppLocalizations.of(context).gotItLabel,
                       style: TextStyle(
                         color: mainColor,
                         fontSize: textFontSize,

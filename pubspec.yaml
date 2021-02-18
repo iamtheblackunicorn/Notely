@@ -24,3 +24,5 @@ flutter:
     - family: "Runes"
       fonts:
         - asset: "assets/fonts/Runes.ttf"
+  assets:
+    - assets/images/logo.png

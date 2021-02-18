@@ -1,12 +1,11 @@
 {
-  "": "",
-  "": "",
-  "": "",
-  "": "",
-  "": "",
-  "": "",
-  "": "",
-  "": "",
-  "": "",
-  "": "",
+  "notesLabel": "Notes",
+  "infoLabel": "Info",
+  "placeHolderLabel": "WRITE YOUR NOTE HERE. :)",
+  "yourNotesLabel": "YOUR NOTES",
+  "closeLabel": "CLOSE MENU",
+  "appInfoLabel": "APP INFO",
+  "underLabel": "licensed under the",
+  "licenseLabel": "license",
+  "gotItLabel": "GOT IT!"
 }
