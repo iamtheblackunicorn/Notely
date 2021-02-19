@@ -1,5 +1,5 @@
 language: android
-dist: trusty
+os: linux
 android:
   components:
     - build-tools-26.0.2
