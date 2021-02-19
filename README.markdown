@@ -43,7 +43,7 @@ You have now generated a release build of *Notely*.
 
 ## Download :pen:
 
-- :crossed_swords: Release 1.0.0 : [Download](https://github.com/iamtheblackunicorn/Notely/releases/download/v.1.0.0/Notely-1.0.0-Release.apk) (17.43 MB)
+- :crossed_swords: Release 1.0.0: [Download](https://github.com/iamtheblackunicorn/Notely/releases/download/v.1.0.0/Notely-1.0.0-Release.apk) (17.43 MB)
 
 ## Usage :pick:
 
@@ -62,6 +62,14 @@ const Locale('languagecode', ''),
 ```
 
 `languagecode` represents the language you are translating for.
+
+## Changelog :black_nib:
+
+### Initial Release:
+
+- upload to GitHub
+- polishing of the logic
+- minor fixes
 
 ## Note :scroll:
 
