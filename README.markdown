@@ -2,7 +2,7 @@
  <img src="https://github.com/iamtheblackunicorn/Notely/raw/main/assets/images/notelyBanner.png"/>
 </p>
 
-# Notely :scroll:
+# Notely :crossed_swords:
 
 *Manage your thoughts like a Viking.* :crossed_swords:
 
