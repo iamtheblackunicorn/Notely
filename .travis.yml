@@ -1,10 +1,21 @@
 os:
   - linux
+language: android
+dist: trusty
+android:
+  components:
+    - build-tools-26.0.2
+    - android-30
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - sys-img-x86-android-26
+    - sys-img-armeabi-v7a-android-17
 sudo: false
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test # if we don't specify this, the libstdc++6 we get is the wrong version
+      - ubuntu-toolchain-r-test
     packages:
       - libstdc++6
       - fonts-droid-fallback
