@@ -152,7 +152,7 @@ class EditorWindowState extends State<EditorWindow> {
     for(int i = 0; i < 4; i++){
       noteKeyList.add(initialNoteKeyList[i]);
     }
-    String noteKey = noteKeyList.join('');
+    String noteKey = noteKeyList.join(' ');
     noteMap.addAll({noteKey:userIO});
     userNote = json.encode(noteMap);
     return widget.notesStorage.writeCounter(userNote);
@@ -225,7 +225,9 @@ class EditorWindowState extends State<EditorWindow> {
                 size: stdIconSize,
               ),
               onPressed: () {
-                //saveNote(editingController.text);
+                editingController.value = TextEditingValue(
+                  text: '',
+                );
               },
             ),
           )
@@ -293,15 +295,14 @@ class EditorWindowState extends State<EditorWindow> {
               ),
               onTap: () {
                 Navigator.pop(context);
-                  editingController.value = TextEditingValue(
-                    text: noteMap[key],
-                    selection: TextSelection.fromPosition(
-                      TextPosition(offset: noteMap[key].length),
-                    ),
-                  );
+                editingController.value = TextEditingValue(
+                  text: noteMap[key],
+                  selection: TextSelection.fromPosition(
+                    TextPosition(offset: noteMap[key].length),
+                  ),
+                );
               },
             );
-
           }
         )
       ),

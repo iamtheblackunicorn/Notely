@@ -1,10 +1,10 @@
 <p align="center">
- <img src="https://github.com/iamtheblackunicorn/Notely/raw/main/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" width=350/>
+ <img src="https://github.com/iamtheblackunicorn/Notely/raw/assets/images/notelyBanner.png" width=550/>
 </p>
 
 # Notely :scroll:
 
-*An open-source note-taking app with a focus on elegance. :black_heart:*
+*Manage your thoughts like a Viking.* :crossed_swords:
 
 ## About
 
