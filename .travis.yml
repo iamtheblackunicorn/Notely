@@ -1,5 +1,3 @@
-os:
-  - linux
 language: android
 dist: trusty
 android:
@@ -11,7 +9,7 @@ android:
     - extra-android-m2repository
     - sys-img-x86-android-26
     - sys-img-armeabi-v7a-android-17
-sudo: false
+sudo: true
 addons:
   apt:
     sources:
