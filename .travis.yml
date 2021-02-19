@@ -1,5 +1,6 @@
-language: android
 os: linux
+dist: xenial
+language: android
 #android:
 #  components:
 #    - build-tools-26.0.2
