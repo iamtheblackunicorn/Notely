@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://github.com/iamtheblackunicorn/Notely/raw/assets/images/notelyBanner.png" width=550/>
+ <img src="https://github.com/iamtheblackunicorn/Notely/raw/main/assets/images/notelyBanner.png" width=550/>
 </p>
 
 # Notely :scroll:
