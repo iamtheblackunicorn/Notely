@@ -4,6 +4,8 @@
 
 # Notely :crossed_swords:
 
+[![Build Status](https://travis-ci.com/iamtheblackunicorn/Notely.svg?branch=main)](https://travis-ci.com/iamtheblackunicorn/Notely)
+
 *Manage your thoughts like a Viking.* :crossed_swords:
 
 ## About :books:
