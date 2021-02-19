@@ -6,12 +6,12 @@
 
 *Manage your thoughts like a Viking.* :crossed_swords:
 
-## About
+## About :books:
 
 I was sick and tired of using shitty note-taking apps that require either logins or save a lot of data about me.
 I wanted something simple that would allow me to write down quick notes without any complications. Notely is that app! ;)
 
-## Building
+## Building :hammer:
 
 Make sure that you have the following programs installed:
 
@@ -41,11 +41,11 @@ $ flutter build apk
 
 You have now generated a release build of *Notely*.
 
-## Download
+## Download :pen:
 
-Still to come.
+- :crossed_swords: Release 1.0.0 : [Download](https://github.com/iamtheblackunicorn/Notely/releases/download/v.1.0.0/Notely-1.0.0-Release.apk) (17.43 MB)
 
-## Usage
+## Usage :pick:
 
 Download the APK file from the section above and make sure you know how to install an APK downloaded from the internet.
 The first screen is the homescreen. This will take you to either creating a new note or the info screen. On the "Notes" screen you have three icons
