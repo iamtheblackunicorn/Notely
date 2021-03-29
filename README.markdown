@@ -1,5 +1,5 @@
 <p align="center">
- <img src="https://github.com/iamtheblackunicorn/Notely/raw/main/assets/images/notelyBanner.png"/>
+ <img src="https://github.com/iamtheblackunicorn/Notely/raw/main/assets/images/banner.png"/>
 </p>
 
 # Notely :crossed_swords:
